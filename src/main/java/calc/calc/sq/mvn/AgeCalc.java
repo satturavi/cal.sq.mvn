@@ -1,20 +1,16 @@
 package calc.calc.sq.mvn;
 import java.time.LocalDate;
 import java.time.Period;
-import java.util.Arrays;
 import java.io.Externalizable;
 import java.io.IOException;
 import java.io.ObjectInput;
 import java.io.ObjectOutput;
 import java.time.DateTimeException;
 
-public class AgeCalc implements Externalizable {
-	private String inputDate;
-	public AgeCalc(String inputDate){
-		this.inputDate = inputDate;
-	}
+public class AgeCalc {
+	
 	public static String calculateAge(String inputDate) throws Exception{
-		AgeCalc obj = new AgeCalc(inputDate);
+		AgeCalc obj = new AgeCalc();
 		String temp[] = inputDate.split("-");
 		String date1 = temp.toString();
 		System.out.println(date1);
@@ -31,8 +27,7 @@ public class AgeCalc implements Externalizable {
 		    	throw new DateTimeException("Invalid day exception");
 		    }
 		    if(months < 0){
-		    	sum=++sum;
-		    	System.out.println(obj.getClass());
+		   
 		    	throw new DateTimeException("Invalid month exception");
 		    }
 		    if(years < 0){
@@ -87,13 +82,5 @@ public class AgeCalc implements Externalizable {
 	    	obj = null;
 	    }
 	   	return resultString;
-	}
-	public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
-		// TODO Auto-generated method stub
-		
-	}
-	public void writeExternal(ObjectOutput out) throws IOException {
-		// TODO Auto-generated method stub
-		
 	}
 }
