@@ -1,21 +1,15 @@
 package calc.calc.sq.mvn;
 import java.time.LocalDate;
 import java.time.Period;
-import java.io.Externalizable;
-import java.io.IOException;
-import java.io.ObjectInput;
-import java.io.ObjectOutput;
 import java.time.DateTimeException;
 
 public class AgeCalc {
 	
 	public static String calculateAge(String inputDate) throws Exception{
-		AgeCalc obj = new AgeCalc();
 		String temp[] = inputDate.split("-");
 		String date1 = temp.toString();
 		System.out.println(date1);
 		String resultString = "You are ";
-		int sum = 0;
 	    LocalDate todayDate = LocalDate.now();
 	    try {
 	    	LocalDate dobDate = LocalDate.of(Integer.parseInt(temp[0]), Integer.parseInt(temp[1]), Integer.parseInt(temp[2]));
@@ -31,7 +25,6 @@ public class AgeCalc {
 		    	throw new DateTimeException("Invalid month exception");
 		    }
 		    if(years < 0){
-		    	sum=+10;
 		    	throw new DateTimeException("Invalid year exception");
 		    }
 		    if(years != 0) {
@@ -79,7 +72,6 @@ public class AgeCalc {
 	    	throw e;
 	    }
 	    finally {
-	    	obj = null;
 	    }
 	   	return resultString;
 	}
